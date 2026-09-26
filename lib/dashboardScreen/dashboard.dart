@@ -5,6 +5,7 @@ import 'package:yogayogbranch/customerdirectory/customerdirectory.dart';
 import 'package:yogayogbranch/dashboardScreen/widgets/CustomDrawer.dart';
 import 'package:yogayogbranch/dashboardScreen/widgets/duildMyNavBar.dart';
 import 'package:yogayogbranch/more/more_screen.dart';
+import 'package:yogayogbranch/scanlabelawbscanabelprinting/scanlabelawbscanabelprinting.dart';
 import 'package:yogayogbranch/sessiondeviceverification/sessiondeviceverification.dart';
 
 class Dashboard extends StatefulWidget {
@@ -19,8 +20,9 @@ class _MyWidgetState extends State<Dashboard> {
   final List<Widget> pages = [
     const BranchCommandDashboard(),
     const CustomerDirectory(),
+    const ScanLabelAwbScanAbelPrinting(),
     const SessionDeviceVerification(),
-    const SessionDeviceVerification(),
+
     const MoreScreen(),
   ];
 

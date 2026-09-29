@@ -4,6 +4,11 @@ import 'package:yogayogbranch/serviceordersbiketruckserviceorders/serviceordersb
 import 'package:yogayogbranch/ridersriderdirectory/ridersriderdirectory.dart';
 import 'package:yogayogbranch/assignedordersassignedorderqueue/assignedordersassignedorderqueue.dart';
 import 'package:yogayogbranch/connectmanualconnectshipmentmanually/connectmanualconnectshipmentmanually.dart';
+import 'package:yogayogbranch/connectautoautomaticconnectionpreview/connectautoautomaticconnectionpreview.dart';
+import 'package:yogayogbranch/coloaderorderscooaderorderoperations/coloaderorderscooaderorderoperations.dart';
+import 'package:yogayogbranch/readytoshipreadytoshipqueue/readytoshipreadytoshipqueue.dart';
+import 'package:yogayogbranch/pickuprequestqueue/pickuprequestqueue.dart';
+import 'package:yogayogbranch/deliveryandndrreview/deliveryandndrreview.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -43,6 +48,16 @@ class _MoreScreenState extends State<MoreScreen> {
               _buildAssignedOrdersItem(),
               const SizedBox(height: 10),
               _buildConnectShipmentItem(),
+              const SizedBox(height: 10),
+              _buildAutomaticConnectionItem(),
+              const SizedBox(height: 10),
+              _buildColoaderOperationsItem(),
+              const SizedBox(height: 10),
+              _buildReadyToShipItem(),
+              const SizedBox(height: 10),
+              _buildPickupRequestItem(),
+              const SizedBox(height: 10),
+              _buildDeliveryReviewItem(),
             ],
           ),
         ),
@@ -423,6 +438,342 @@ class _MoreScreenState extends State<MoreScreen> {
                     SizedBox(height: 5),
                     Text(
                       'Link a shipment to a branch or route',
+                      style: TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                color: Color(0xFF26369E),
+                size: 22,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAutomaticConnectionItem() {
+    return Material(
+      color: const Color(0xFFF9FAFF),
+      borderRadius: BorderRadius.circular(15),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(15),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const ConnectAutoAutomaticConnectionPreview(),
+            ),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: const Color(0xFFDDE3F0)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF26369E).withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.auto_awesome_outlined,
+                  color: Color(0xFF26369E),
+                  size: 21,
+                ),
+              ),
+              const SizedBox(width: 12),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Automatic connection preview',
+                      style: TextStyle(
+                        color: Color(0xFF0B0D13),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Review orders ready for auto connection',
+                      style: TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                color: Color(0xFF26369E),
+                size: 22,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildColoaderOperationsItem() {
+    return Material(
+      color: const Color(0xFFF9FAFF),
+      borderRadius: BorderRadius.circular(15),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(15),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const ColoaderOrdersCoLoaderOrderOperations(),
+            ),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: const Color(0xFFDDE3F0)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF26369E).withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.local_shipping_outlined,
+                  color: Color(0xFF26369E),
+                  size: 21,
+                ),
+              ),
+              const SizedBox(width: 12),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Co-loader order operations',
+                      style: TextStyle(
+                        color: Color(0xFF0B0D13),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Track co-loader shipments and exceptions',
+                      style: TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                color: Color(0xFF26369E),
+                size: 22,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildReadyToShipItem() {
+    return Material(
+      color: const Color(0xFFF9FAFF),
+      borderRadius: BorderRadius.circular(15),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(15),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => const ReadyToShipReadyToShipQueue(),
+            ),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: const Color(0xFFDDE3F0)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF26369E).withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.inventory_2_outlined,
+                  color: Color(0xFF26369E),
+                  size: 21,
+                ),
+              ),
+              const SizedBox(width: 12),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Ready-to-ship queue',
+                      style: TextStyle(
+                        color: Color(0xFF0B0D13),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Review labels, manifests and holds',
+                      style: TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                color: Color(0xFF26369E),
+                size: 22,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPickupRequestItem() {
+    return Material(
+      color: const Color(0xFFF9FAFF),
+      borderRadius: BorderRadius.circular(15),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(15),
+        onTap: () {
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (_) => const PickupRequestQueue()));
+        },
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: const Color(0xFFDDE3F0)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF26369E).withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.inventory_outlined,
+                  color: Color(0xFF26369E),
+                  size: 21,
+                ),
+              ),
+              const SizedBox(width: 12),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Pickup request queue',
+                      style: TextStyle(
+                        color: Color(0xFF0B0D13),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Review and assign pickup requests',
+                      style: TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(
+                Icons.chevron_right,
+                color: Color(0xFF26369E),
+                size: 22,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDeliveryReviewItem() {
+    return Material(
+      color: const Color(0xFFF9FAFF),
+      borderRadius: BorderRadius.circular(15),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(15),
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const DeliveryAndNDRReview()),
+          );
+        },
+        child: Container(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: const Color(0xFFDDE3F0)),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 42,
+                height: 42,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF26369E).withValues(alpha: 0.1),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(
+                  Icons.rate_review_outlined,
+                  color: Color(0xFF26369E),
+                  size: 21,
+                ),
+              ),
+              const SizedBox(width: 12),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Delivery and NDR review',
+                      style: TextStyle(
+                        color: Color(0xFF0B0D13),
+                        fontSize: 13,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Review delivery exceptions and retries',
                       style: TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
                     ),
                   ],

@@ -1,0 +1,244 @@
+import 'package:flutter/material.dart';
+
+class ReverseReverseOrderWorkflow extends StatefulWidget {
+  const ReverseReverseOrderWorkflow({super.key});
+
+  @override
+  State<ReverseReverseOrderWorkflow> createState() =>
+      _ReverseReverseOrderWorkflowState();
+}
+
+class _ReverseReverseOrderWorkflowState
+    extends State<ReverseReverseOrderWorkflow> {
+  static const _pageBackground = Color(0xFFF5F7FF);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: _pageBackground,
+      body: Stack(
+        children: [
+          const _ReverseOrderBackground(),
+          SafeArea(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(12, 4, 12, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _buildHeader(),
+                  const SizedBox(height: 14),
+                  _buildField('AWB number'),
+                  _buildField('Reverse reason'),
+                  _buildField('Return destination'),
+                  _buildField('Pickup window'),
+                  _buildField('Charges and authorization'),
+                  const SizedBox(height: 25),
+                  _buildActionButton(),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Container(
+      height: 57,
+      padding: const EdgeInsets.symmetric(horizontal: 7),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(17),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x180D1D68),
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 36,
+            height: 36,
+            decoration: const BoxDecoration(
+              color: Color(0xFFFFD632),
+              shape: BoxShape.circle,
+            ),
+            child: const Icon(
+              Icons.chevron_left,
+              size: 20,
+              color: Color(0xFF17276D),
+            ),
+          ),
+          const SizedBox(width: 10),
+          const Text(
+            'Reverse order workflow',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const Spacer(),
+          Container(
+            width: 38,
+            height: 4,
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFC800),
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildField(String label) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 11),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 1, bottom: 7),
+            child: Text(
+              label,
+              style: const TextStyle(
+                color: Color(0xFF42557D),
+                fontSize: 10,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          Container(
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(13),
+              boxShadow: const [
+                BoxShadow(
+                  color: Color(0x160D1D68),
+                  blurRadius: 10,
+                  offset: Offset(0, 5),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildActionButton() {
+    return Container(
+      height: 53,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: [Color(0xFF263694), Color(0xFF4059D2)],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
+        borderRadius: BorderRadius.circular(17),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x302339A1),
+            blurRadius: 12,
+            offset: Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 5,
+            height: 28,
+            margin: const EdgeInsets.only(left: 16),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFD000),
+              borderRadius: BorderRadius.circular(3),
+            ),
+          ),
+          const Expanded(
+            child: Center(
+              child: Text(
+                'Create reverse order',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(right: 18),
+            child: Text(
+              '›',
+              style: TextStyle(
+                color: Color(0xFFFFD000),
+                fontSize: 27,
+                fontWeight: FontWeight.w800,
+                height: 0.8,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ReverseOrderBackground extends StatelessWidget {
+  const _ReverseOrderBackground();
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: Stack(
+        children: [
+          Positioned(
+            top: -53,
+            right: -24,
+            child: Container(
+              width: 130,
+              height: 180,
+              decoration: const BoxDecoration(
+                color: Color(0xFFE9EDFF),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(100),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 397,
+            left: -49,
+            child: Container(
+              width: 97,
+              height: 97,
+              decoration: const BoxDecoration(
+                color: Color(0xFFFFF1B5),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 11,
+            left: 17,
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: const BoxDecoration(
+                color: Color(0xFFE3F5F0),
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

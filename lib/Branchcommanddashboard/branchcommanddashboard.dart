@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yogayogbranch/searchresultsawbsearchresults/searchresultsawbsearchresults.dart';
 
 class BranchCommandDashboard extends StatefulWidget {
   const BranchCommandDashboard({super.key});
@@ -235,78 +236,91 @@ class _BranchCommandDashboardState extends State<BranchCommandDashboard> {
     required String subtitle,
     required String action,
   }) {
-    return Container(
-      height: 68,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: const Color(0xFFF9FAFF),
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: const Color(0xFFDDE3F0)),
-      ),
-      child: Row(
-        children: [
-          Container(
-            width: 5,
-            height: 68,
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(3),
-            ),
+    return InkWell(
+      borderRadius: BorderRadius.circular(15),
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => const SearchResultsAWBSearchResults(),
           ),
-          const SizedBox(width: 10),
-          Container(
-            width: 28,
-            height: 28,
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.13),
-              shape: BoxShape.circle,
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              icon,
-              style: TextStyle(color: color, fontWeight: FontWeight.w800),
-            ),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: const TextStyle(
-                    color: Color(0xFF0B0D13),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                const SizedBox(height: 3),
-                Text(
-                  subtitle,
-                  style: const TextStyle(color: Color(0xFF4B5A7B), fontSize: 9),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: 68,
-            height: 25,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.11),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Text(
-              action,
-              style: TextStyle(
+        );
+      },
+      child: Container(
+        height: 68,
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        decoration: BoxDecoration(
+          color: const Color(0xFFF9FAFF),
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: const Color(0xFFDDE3F0)),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 5,
+              height: 68,
+              decoration: BoxDecoration(
                 color: color,
-                fontSize: 9,
-                fontWeight: FontWeight.w800,
+                borderRadius: BorderRadius.circular(3),
               ),
             ),
-          ),
-        ],
+            const SizedBox(width: 10),
+            Container(
+              width: 28,
+              height: 28,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.13),
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                icon,
+                style: TextStyle(color: color, fontWeight: FontWeight.w800),
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      color: Color(0xFF0B0D13),
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  const SizedBox(height: 3),
+                  Text(
+                    subtitle,
+                    style: const TextStyle(
+                      color: Color(0xFF4B5A7B),
+                      fontSize: 9,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              width: 68,
+              height: 25,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: color.withValues(alpha: 0.11),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Text(
+                action,
+                style: TextStyle(
+                  color: color,
+                  fontSize: 9,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
